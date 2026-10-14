@@ -9,8 +9,6 @@ The operator sets up and runs every measurement from a window, sees the results 
 - Live data during kinetic runs, automatic saving, and a built-in terminal for sending commands directly to the reader.
 - A built-in simulator, so you can learn and test the software without the instrument.
 
-> **Status:** tested end-to-end on a VersaMax with firmware **3.13 (31 Oct 1998)**, connected through a CH340 USB-serial adapter, on an Intel MacBook Pro running macOS 26 with Python 3.13. See [Compatibility](#compatibility).
-
 ---
 
 ## Contents
@@ -95,10 +93,6 @@ That is all. The application is the single file `versamax_reader.py`; keep `Laun
 ## Starting the program
 
 **Double-click** `Launch VersaMax Reader.command` in Finder. The first time, macOS may ask you to confirm opening a downloaded script: right-click it, choose **Open**, then **Open** again. If it does not run after cloning, make it executable:
-
-```bash
-chmod +x "Launch VersaMax Reader.command"
-```
 
 **From a terminal:**
 
@@ -187,7 +181,7 @@ Type a reader command, for example `! status`, `! help mode` or `! temp 37`, and
 
 Commands sent without the leading `!` are echoed back by the reader.
 
-> ⚠️ **Caution: service commands.** The Terminal sends whatever you type straight to the reader, and the reader also accepts factory service and calibration commands. Some of these, for example `init`, `air_cal`, `set_f900`, `set_f1000`, `caldac`, `calign` and `set_calflag`, can overwrite the calibration stored in the reader. The reader could then measure inaccurately until it is properly re-calibrated. The buttons in this program never send these commands. In the Terminal, use only the commands described in this README and the ones you understand; if unsure, check first with `! help <command>`.
+> **Caution: service commands.** The Terminal sends whatever you type straight to the reader, and the reader also accepts factory service and calibration commands. Some of these, for example `init`, `air_cal`, `set_f900`, `set_f1000`, `caldac`, `calign` and `set_calflag`, can overwrite the calibration stored in the reader. The reader could then measure inaccurately until it is properly re-calibrated. The buttons in this program never send these commands. In the Terminal, use only the commands described in this README and the ones you understand; if unsure, check first with `! help <command>`.
 
 ### 7. Log tab and reader memory
 
@@ -249,21 +243,9 @@ The simulator behaves like a real VersaMax (its replies are modelled on recordin
 
 ## Compatibility
 
-- **Tested:** VersaMax Tunable Microplate Reader, firmware 3.13 (31 Oct 1998); CH340 USB-serial adapter (USB ID 1A86:7523); macOS 26 (Intel); Python 3.13 with Tk 8.6 and pyserial 3.5.
+- **Tested:** VersaMax Tunable Microplate Reader, firmware 3.13 (31 Oct 1998); CH340 USB-serial adapter (USB ID 1A86:7523); Python 3.13 with Tk 8.6 and pyserial 3.5.
 - **Other VersaMax units:** expected to work, since nothing in the program is specific to one unit and it reads the reader's model, firmware and settings on every connection. Units with different firmware may differ in details (supported modes, maximum wavelengths, reply format). A quick check on a new unit: connect and look at the model and firmware shown top-right, run `! help mode` and `! help wavelength` in the Terminal tab, then do one endpoint read on an empty plate.
 - **Baud rate:** fixed at 9600, the factory setting. A reader whose baud rate has been changed will not connect.
-- **VersaMax PLUS** (with cuvette port): not tested; cuvette functions are not supported.
-- **Other operating systems:** the code is plain Python and Tkinter and should also run on Windows and Linux (choose the COM or `/dev/tty…` port), but only macOS has been tested.
-
----
-
-## Known limitations
-
-- **Shaking between kinetic reads** cannot be verified electronically: the reader reports no shaking state and keeps the same timing whether it is on or off. Watch the plate during a kinetic run with *Before first read + between reads* selected to confirm it on your unit.
-- The **save folder** resets to the default each time the program starts.
-- Results folder and file names are generated automatically (only the run *Name* is chosen by the operator).
-- No built-in data reduction (blank subtraction, standard curves, Vmax): use the CSV files in your analysis software of choice.
-- Only 96-well plates are supported (the VersaMax is a 96-well reader).
 
 ---
 
