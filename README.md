@@ -271,8 +271,6 @@ The simulator behaves like a real VersaMax (its replies are modelled on recordin
 
 **Unofficial software.** This is an independent project. It is not affiliated with, endorsed by, sponsored by or supported by Molecular Devices, LLC or its predecessors. Product names are used only to describe which instrument the software works with. VERSAmax is a trademark of its respective owner.
 
-**Non-commercial.** The project is shared free of charge for research and educational purposes. It is not sold, and no paid support, service or warranty is offered.
-
 **Independent implementation.** The program contains no Molecular Devices software or code. It communicates with the reader only through the reader's standard RS-232 serial port, using the plain-text commands the instrument itself documents through its built-in `help` command.
 
 **No warranty; use at your own risk.** The software is provided as is, without warranty of any kind (see the MIT License). It has not been validated for regulated (GLP/GMP or clinical) use. Verify results against a known reference before relying on them.
