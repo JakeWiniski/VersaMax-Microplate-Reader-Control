@@ -1,8 +1,8 @@
-# VersaMax Control (unofficial)
+# VersaMax Microplate Reader Control
 
-A single-file Python application for running a **Molecular Devices VERSAmax Tunable Microplate Reader** from a Mac (or any computer with Python), with a full graphical interface.
+A single-file Python application for running a **Molecular Devices VERSAmax Tunable Microplate Reader** with a full graphical interface.
 
-The operator sets up and runs every measurement from a window, sees the results as a plate heat map and graphs, and every run is saved automatically as CSV files ready for Excel, R, Python or Prism.
+The operator sets up and runs every measurement from a window, sees the results as a plate heat map and graphs, and every run is saved automatically as CSV files.
 
 - One file, one dependency (`pyserial`). No installer, no licence server.
 - Endpoint, kinetic and spectrum-scan reads at 1–8 wavelengths (340–850 nm), on the whole plate or selected columns.
